@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vitan Shukla's vibrant portfolio and resume">
+    <title>Vitan Shukla | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="preloader-text">
+            <span data-char>H</span><span data-char>i</span><span data-char>,</span><span data-char> </span>
+            <span data-char>I</span><span data-char> </span><span data-char>a</span><span data-char>m</span><span data-char> </span>
+            <span data-char>V</span><span data-char>i</span><span data-char>t</span><span data-char>a</span><span data-char>n</span><span data-char> </span>
+            <span data-char>S</span><span data-char>h</span><span data-char>u</span><span data-char>k</span><span data-char>l</span><span data-char>a</span>
+        </div>
+    </div>
+    <div id="scroll-progress"></div>
+
+    <header>
+        <div class="header-content">
+            <h1>Vitan Shukla</h1>
+            <p>Web Developer | AI Enthusiast | Creative Designer</p>
+        </div>
+        <nav role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="#about" aria-label="Go to About section">About</a></li>
+                <li><a href="#portfolio" aria-label="Go to Portfolio section">Portfolio</a></li>
+                <li><a href="#qualifications" aria-label="Go to Qualifications section">Qualifications</a></li>
+                <li><a href="#hobbies" aria-label="Go to Hobbies section">Hobbies</a></li>
+                <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
+                <li><a href="#query" aria-label="Go to Query section">Query</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle between light and dark theme">Dark Mode</button>
+    </header>
+
+    <section id="hero">
+        <canvas id="particles"></canvas>
+        <div class="hero-content parallax-container">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Explore my work in web development and AI-driven solutions.</p>
+            <a href="#portfolio" class="cta-button" aria-label="View my portfolio">See My Work</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="about" class="content-section" data-animation="fade-in">
+            <div class="about-content">
+                <img src="assets/profile.jpg" alt="Vitan Shukla's Profile Picture" class="profile-image">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Hi, I'm Vitan Shukla, a passionate web developer with a knack for creating engaging, user-focused websites. With expertise in front-end technologies and AI integration, I craft seamless digital experiences that blend creativity and functionality. Always eager to tackle complex challenges, I stay ahead of trends to deliver innovative solutions.</p>
+                    <h3>Skills:</h3>
+                    <ul>
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>React, Node.js</li>
+                        <li>Python, Django</li>
+                        <li>AI/ML Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="content-section" data-animation="fade-in">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="assets/resume-job-matcher.jpg" alt="Resume-Job Matcher Project">
+                    <div class="portfolio-info">
+                        <h3>Resume-Job Matcher</h3>
+                        <p>A Flask-based web app using RoBERTa for resume-job matching.</p>
+                        <a href="https://github.com/vitanshukla/resume-job-matcher" target="_blank" aria-label="View Resume-Job Matcher on GitHub">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/ecommerce.jpg" alt="E-Commerce Platform Project">
+                    <div class="portfolio-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A responsive e-commerce site with React and Node.js.</p>
+                        <a href="https://github.com/vitanshukla/ecommerce" target="_blank" aria-label="View E-Commerce Platform on GitHub">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="qualifications" class="content-section" data-animation="fade-in">
+            <h2>Qualifications</h2>
+            <p>Master of Technology in Artificial Intelligence (Pursuing) - XYZ University</p>
+            <p>Bachelor of Technology in Computer Science - ABC Institute</p>
+            <p>Certified Web Developer - DEF Organization</p>
+        </section>
+
+        <section id="hobbies" class="content-section" data-animation="fade-in">
+            <h2>Hobbies & Interests</h2>
+            <ul>
+                <li>Exploring web development and AI innovations</li>
+                <li>Creating interactive web applications</li>
+                <li>Playing chess to hone strategic thinking</li>
+                <li>Traveling to discover new cultures</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="content-section" data-animation="fade-in">
+            <h2>Contact Me</h2>
+            <ul>
+                <li>Email: <a href="mailto:vitanshukla@example.com">vitanshukla@example.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/vitanshukla" target="_blank" rel="noopener noreferrer">linkedin.com/in/vitanshukla</a></li>
+                <li>GitHub: <a href="https://github.com/vitanshukla" target="_blank" rel="noopener noreferrer">github.com/vitanshukla</a></li>
+            </ul>
+            <p><a href="assets/resume.pdf" download aria-label="Download Vitan Shukla's Resume">Download My Resume</a></p>
+        </section>
+
+        <section id="query" class="content-section" data-animation="fade-in">
+            <h2>Get in Touch</h2>
+            <form id="query-form" aria-label="Contact form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Vitan Shukla. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
