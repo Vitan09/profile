@@ -6,6 +6,7 @@
     <meta name="description" content="Vitan Shukla's vibrant portfolio and resume">
     <title>Vitan Shukla | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <div id="preloader">
@@ -17,12 +18,17 @@
         </div>
     </div>
     <div id="scroll-progress"></div>
-
+    <div class="stars"></div>
     <header>
         <div class="header-content">
             <h1>Vitan Shukla</h1>
             <p>Web Developer | AI Enthusiast | Creative Designer</p>
         </div>
+        <button id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
         <nav role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="#about" aria-label="Go to About section">About</a></li>
@@ -35,7 +41,7 @@
         </nav>
         <button id="theme-toggle" aria-label="Toggle between light and dark theme">Dark Mode</button>
     </header>
-
+    <div class="blob"></div>
     <section id="hero">
         <canvas id="particles"></canvas>
         <div class="hero-content parallax-container">

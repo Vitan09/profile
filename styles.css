@@ -276,12 +276,13 @@ nav ul li a:hover::after {
     cursor: pointer;
     border-radius: 1.5rem;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+    transition: background 0.5s ease, transform 0.5s ease, rotate 0.5s ease;
 }
 
 #theme-toggle:hover {
     animation: pulse 1s infinite;
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    transform: rotate(20deg) scale(1.1);
 }
 
 #theme-toggle:active::after {
@@ -743,4 +744,233 @@ footer:hover {
     #theme-toggle { font-size: 0.7rem; padding: 0.4rem 0.8rem; left: 1rem; top: 1rem; }
     .content-section { padding: 1.2rem; margin: 1rem; padding-top: 100px; }
     .preloader-text { font-size: 1.2rem; }
+}
+
+/* Hamburger Button */
+#hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    position: fixed;
+    right: 1.5rem;
+    top: 1.5rem;
+}
+
+#hamburger .bar {
+    height: 3px;
+    width: 100%;
+    background: var(--text-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation */
+#hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+#hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+#hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hide nav for mobile */
+@media (max-width: 768px) {
+    nav ul {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: var(--section-background);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 200px;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    nav ul.active {
+        transform: translateX(0);
+    }
+
+    #hamburger {
+        display: flex;
+    }
+
+    nav ul li {
+        opacity: 1;
+        animation: none;
+    }
+}
+
+/* --- Enhanced Global Transitions --- */
+* {
+    transition: all 0.4s ease-in-out;
+}
+
+/* --- Header Glowing Shadow --- */
+header {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+header.shrunk {
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* --- Nav Underline Animation --- */
+nav ul li a::after {
+    height: 2px;
+    width: 0;
+    background: var(--accent-color-alt);
+    transition: width 0.4s ease;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 80%;
+}
+
+/* --- Hero Floating Text --- */
+.hero-content h2, .hero-content p {
+    animation: floatUpDown 5s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* --- Particle Glow --- */
+#particles {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+}
+
+/* --- Portfolio Hover Glow --- */
+.portfolio-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* --- Button Pulse & Ripple --- */
+.cta-button:hover, #query-form button:hover {
+    animation: pulse 1s infinite;
+}
+
+.cta-button:active::after, #query-form button:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+}
+
+/* --- Form Focus Glow --- */
+#query-form input:focus, #query-form textarea:focus {
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+    transform: scale(1.03);
+}
+
+/* --- Staggered Section Fade-In --- */
+.content-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-section:nth-child(odd).visible {
+    transition-delay: 0.2s;
+}
+
+.content-section:nth-child(even).visible {
+    transition-delay: 0.4s;
+}
+
+/* --- Footer Glow on Hover --- */
+footer:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* --- Hamburger Bars Animation --- */
+#hamburger .bar {
+    transition: all 0.4s ease;
+}
+
+.blob {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-color-alt));
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    animation: blobMorph 8s ease-in-out infinite alternate;
+}
+
+@keyframes blobMorph {
+    0% { border-radius: 60% 40% 50% 50% / 60% 50% 50% 40%; }
+    50% { border-radius: 40% 60% 50% 50% / 50% 60% 40% 50%; }
+    100% { border-radius: 60% 40% 50% 50% / 60% 50% 50% 40%; }
+}
+
+.hero-content h2 {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--accent-color);
+    animation: typing 5s steps(30, end) infinite, blink 0.8s step-end infinite alternate;
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0; }
+}
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--accent-color); }
+}
+
+#custom-cursor {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s ease;
+}
+
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background: transparent url('https://raw.githubusercontent.com/KhanhNguyen9872/starfield-background/main/starfield.png') repeat;
+    animation: starScroll 60s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes starScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 1000px; }
 }

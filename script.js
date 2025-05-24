@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        themeToggleButton.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        themeToggleButton.textContent = theme === 'dark' ? '🌙' : '☀️';
         document.body.classList.add('theme-transition');
         setTimeout(() => document.body.classList.remove('theme-transition'), 500);
     }
@@ -59,6 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = {};
         formData.forEach((value, key) => {
             data[key] = value.trim();
+        });
+
+        confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ec4899', '#3b82f6', '#2dd4bf']
         });
 
         if (!data.name) {
@@ -106,11 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         draw() {
+            ctx.save();
+            ctx.shadowColor = 'rgba(255, 255, 255, 0.6)';
+            ctx.shadowBlur = 10;
             ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
+            ctx.restore();
         }
+
     }
 
     function initParticles() {
@@ -192,5 +204,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const parallaxOffset = scrollTop * 0.3;
         parallaxContainer.style.transform = `translateY(${parallaxOffset}px)`;
+    });
+
+    // Hamburger Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.querySelector('nav ul');
+
+    hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !isExpanded);
+    });
+
+    const cursor = document.createElement('div');
+    cursor.id = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    window.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.pageX + 'px';
+        cursor.style.top = e.pageY + 'px';
     });
 });
