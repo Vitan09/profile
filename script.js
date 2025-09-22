@@ -225,4 +225,66 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.style.left = e.pageX + 'px';
         cursor.style.top = e.pageY + 'px';
     });
+
+    // GSAP Animations for All Elements
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Global Staggered Animation for Content Sections
+    gsap.utils.toArray('.content-section').forEach((section, index) => {
+        gsap.from(section.children, {
+            opacity: 0,
+            y: 50,
+            x: index % 2 === 0 ? -50 : 50,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none none",
+            }
+        });
+    });
+
+    // Animate Header
+    gsap.from('header', {
+        opacity: 0,
+        y: -50,
+        duration: 1,
+        ease: "power2.out",
+    });
+
+    // Animate Hero Content
+    gsap.from('.hero-content > *', {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.2,
+    });
+
+    // Animate Portfolio Items
+    gsap.utils.toArray('.portfolio-item').forEach((item, index) => {
+        gsap.from(item, {
+            opacity: 0,
+            y: 60,
+            rotateY: index % 2 === 0 ? 10 : -10,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 90%",
+            }
+        });
+    });
+
+    // Buttons Bounce on Hover
+    document.querySelectorAll('.cta-button, #query-form button').forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            gsap.to(button, { scale: 1.1, y: -3, duration: 0.3, ease: 'power1.out' });
+        });
+        button.addEventListener('mouseleave', () => {
+            gsap.to(button, { scale: 1, y: 0, duration: 0.3, ease: 'power1.inOut' });
+        });
+    });
 });
