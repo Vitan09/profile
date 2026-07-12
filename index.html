@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+    <canvas id="particles"></canvas>
     <div id="preloader">
         <div class="preloader-text">
             <span data-char>H</span><span data-char>i</span><span data-char>,</span><span data-char> </span>
@@ -19,10 +20,11 @@
     </div>
     <div id="scroll-progress"></div>
     <div class="stars"></div>
+
     <header>
         <div class="header-content">
             <h1>Vitan Shukla</h1>
-            <p>Web Developer | AI Enthusiast | Creative Designer</p>
+            <p>Student – Integrated MTech in Artificial Intelligence</p>
         </div>
         <button id="hamburger" aria-label="Toggle menu" aria-expanded="false">
             <span class="bar"></span>
@@ -31,12 +33,13 @@
         </button>
         <nav role="navigation" aria-label="Main navigation">
             <ul>
-                <li><a href="#about" aria-label="Go to About section">About</a></li>
-                <li><a href="#portfolio" aria-label="Go to Portfolio section">Portfolio</a></li>
-                <li><a href="#qualifications" aria-label="Go to Qualifications section">Qualifications</a></li>
-                <li><a href="#hobbies" aria-label="Go to Hobbies section">Hobbies</a></li>
-                <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
-                <li><a href="#query" aria-label="Go to Query section">Query</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Technical Skills</a></li>
+                <li><a href="#portfolio">Featured Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contacts">Contact</a></li>
+                <li><a href="#query">Query</a></li>
             </ul>
         </nav>
         <button id="theme-toggle" aria-label="Toggle between light and dark theme">Dark Mode</button>
@@ -57,82 +60,350 @@
                 <img src="assets/profile.jpg" alt="Vitan Shukla's Profile Picture" class="profile-image">
                 <div class="about-text">
                     <h2>About Me</h2>
-                    <p>Hi, I'm Vitan Shukla, a passionate web developer with a knack for creating engaging, user-focused websites. With expertise in front-end technologies and AI integration, I craft seamless digital experiences that blend creativity and functionality. Always eager to tackle complex challenges, I stay ahead of trends to deliver innovative solutions.</p>
-                    <h3>Skills:</h3>
-                    <ul>
-                        <li>HTML, CSS, JavaScript</li>
-                        <li>React, Node.js</li>
-                        <li>Python, Django</li>
-                        <li>AI/ML Integration</li>
+                    <p>Hi , I am Vitan Shukla pursuing an Integrated Master of Technology in Artificial Intelligence with a strong foundation in machine learning and deep learning. I have developed impactful projects such as a Resume Classification System and a Sepsis Prediction Model, leveraging advanced algorithms and techniques. My technical skills include proficiency in Python, various ML frameworks, and deployment technologies, reflecting my commitment to using AI for meaningful solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="content-section">
+            <h2>Featured Projects</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem; color: var(--text-color); opacity: 0.9;">
+                A showcase of my recent work in machine learning, data engineering, and modern web technologies.
+            </p>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-status completed">Completed</div>
+                    <div class="project-icon"></div>
+                    <h3>Resume Matching & Reranking System</h3>
+                    <p class="project-subtitle">NLP & Learning-to-Rank Project • 2025</p>
+                    <p class="project-desc">
+                        Developed an intelligent Resume Matching and Reranking system using transformer-based regression models and cross-encoder reranking techniques.
+                    </p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        <ul>
+                            <li>Implemented RoBERTa-based regression model for resume-job similarity scoring</li>
+                            <li>Integrated Cross-Encoder reranker for enhanced ranking precision</li>
+                            <li>Evaluated using MSE, MAE, R², Precision@5, and NDCG@5 metrics</li>
+                            <li>Handled imbalanced datasets using SMOTE, ADASYN, NearMiss, and ENN</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">
+                        Python • RoBERTa • BERT • Learning-to-Rank • XGBoost • Scikit-learn • Hugging Face
+                    </div>
+                    <div class="project-links">
+                        <!-- <a href="https://github.com/vitanshukla/your-repo" target="_blank" class="btn-code">Code</a>
+                        <a href="#" class="btn-demo disabled">Research Implementation</a> -->
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-status completed">Completed</div>
+                    <div class="project-icon"></div>
+                    <h3>Sepsis Prediction System</h3>
+                    <p class="project-subtitle">Healthcare Machine Learning Project • 2024</p>
+                    <p class="project-desc">
+                        Built a machine learning model to predict early-stage sepsis using clinical and physiological patient data.
+                    </p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        <ul>
+                            <li>Trained classification models including Logistic Regression, Random Forest, and XGBoost</li>
+                            <li>Performed feature analysis on vitals such as heart rate, WBC, glucose, and oxygen saturation</li>
+                            <li>Addressed class imbalance using SMOTE and other resampling techniques</li>
+                            <li>Achieved strong performance using precision, recall, F1-score, and AUC metrics</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">
+                        Python • Scikit-learn • XGBoost • Pandas • Matplotlib • Imbalanced Learning
+                    </div>
+                    <div class="project-links">
+                        <!-- <a href="https://github.com/vitanshukla/your-repo" target="_blank" class="btn-code">Code</a>
+                        <a href="#" class="btn-demo disabled">Model Evaluation</a> -->
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-status in-development">In Development</div>
+                    <div class="project-icon"></div>
+                    <h3>AI-Based Natural Disaster Management using Drone Imagery</h3>
+                    <p class="project-subtitle">Computer Vision & Semantic Segmentation Project • 2025</p>
+                    <p class="project-desc">
+                        Developing an AI-powered disaster response system using semantic segmentation models on high-resolution drone imagery to assist NGOs in rapid damage assessment and relief planning.
+                    </p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        <ul>
+                            <li>Implemented DeepLabV3, U-Net, and Attention U-Net for pixel-level damage segmentation</li>
+                            <li>Trained and evaluated models on the RescueNet disaster dataset</li>
+                            <li>Performed multi-class segmentation for buildings, roads, debris, and affected regions</li>
+                            <li>Optimized model performance using IoU, Dice Coefficient, and segmentation accuracy metrics</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">
+                        Python • PyTorch • DeepLabV3 • U-Net • Attention U-Net • Semantic Segmentation • RescueNet Dataset
+                    </div>
+                    <div class="project-links">
+                        <!-- <a href="https://github.com/vitanshukla/your-repo" target="_blank" class="btn-code">Code</a>
+                        <a href="#" class="btn-demo disabled">Live Demo (Soon)</a> -->
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="https://github.com/Vitan09" target="_blank" class="btn-github">
+                    View All Projects on GitHub
+                </a>
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2>Technical Skills</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem; color: var(--text-color); opacity: 0.9;">
+                Technologies and tools I use in Machine Learning, NLP, and Full-Stack Development
+            </p>
+
+            <div class="skills-category-grid">
+
+                <!-- Programming -->
+                <div class="skill-category-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(59, 130, 246, 0.3));">
+                    <h3>Programming</h3>
+                    <ul class="skill-list">
+                        <li>Java</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>R</li>
+                        <li>MySQL</li>
+                        <li>JavaScript</li>
                     </ul>
                 </div>
+
+                <!-- Machine Learning -->
+                <div class="skill-category-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.6), rgba(16, 185, 129, 0.3));">
+                    <h3>Machine Learning</h3>
+                    <ul class="skill-list">
+                        <li>Supervised Learning (Regression & Classification)</li>
+                        <li>Learning-to-Rank</li>
+                        <li>XGBoost</li>
+                        <li>Logistic Regression</li>
+                        <li>Random Forest</li>
+                        <li>Imbalanced Data Handling (SMOTE, ADASYN, NearMiss, ENN)</li>
+                    </ul>
+                </div>
+
+                <!-- Deep Learning & NLP -->
+                <div class="skill-category-card" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.6), rgba(168, 85, 247, 0.3));">
+                    <h3>Deep Learning & NLP</h3>
+                    <ul class="skill-list">
+                        <li>PyTorch</li>
+                        <li>Transformer Fine-Tuning</li>
+                        <li>Cross-Encoder Reranking</li>
+                        <li>BERT</li>
+                        <li>RoBERTa</li>
+                        <li>DistilBERT</li>
+                    </ul>
+                </div>
+
+                <!-- Libraries & Frameworks -->
+                <div class="skill-category-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.6), rgba(245, 158, 11, 0.3));">
+                    <h3>Libraries & Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>Hugging Face Transformers</li>
+                        <li>sentence-transformers</li>
+                        <li>Scikit-learn</li>
+                        <li>Flask</li>
+                    </ul>
+                </div>
+
+                <!-- Deployment & Web Technologies -->
+                <div class="skill-category-card" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.6), rgba(236, 72, 153, 0.3));">
+                    <h3>Deployment & Web Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Flask (REST API Development)</li>
+                        <li>Model Serialization & Inference Pipelines</li>
+                        <li>Netlify</li>
+                        <li>Vercel</li>
+                        <li>GitHub Pages</li>
+                    </ul>
+                </div>
+
+                <!-- Data Processing & Tools -->
+                <div class="skill-category-card" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.3));">
+                    <h3>Data Processing & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Pandas</li>
+                        <li>NumPy</li>
+                        <li>Matplotlib</li>
+                        <li>Git</li>
+                        <li>GitHub</li>
+                        <li>Jupyter Notebook</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
-        <section id="portfolio" class="content-section" data-animation="fade-in">
-            <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="assets/resume-job-matcher.jpg" alt="Resume-Job Matcher Project">
-                    <div class="portfolio-info">
-                        <h3>Resume-Job Matcher</h3>
-                        <p>A Flask-based web app using RoBERTa for resume-job matching.</p>
-                        <a href="https://github.com/vitanshukla/resume-job-matcher" target="_blank" aria-label="View Resume-Job Matcher on GitHub">View Project</a>
+        <section id="certificates" class="content-section">
+            <h2 style = "text-align: center;"> Certificates </h2>
+            <div class="cert-grid">
+
+                <!-- Certificate Card 1 -->
+                <div class="cert-card">
+                    <img src="assets/Coursera Certificate.png" alt="Machine Learning with Python" >
+
+                    <div class="cert-content">
+                        <div class="cert-tags">
+                            <span class="tag blue">Machine Learning </span>
+                            <span class="status green">Certified</span>
+                        </div>
+
+                        <h3>Machine Learning with Python</h3>
+                        <p>Completed comprehensive training covering supervised learning, model evaluation, and practical ML implementation.</p>
+
+                        <div class="cert-meta">
+                            <span>Coursera</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="assets/e commerce.png" alt="E-Commerce Platform Project">
-                    <div class="portfolio-info">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A responsive e-commerce site with React and Node.js.</p>
-                        <a href="https://github.com/vitanshukla/ecommerce" target="_blank" aria-label="View E-Commerce Platform on GitHub">View Project</a>
+
+                <!-- Certificate Card 2 -->
+                <div class="cert-card">
+                    <img src="assets/Microsoft AI Oddesy Challenge.png" alt="icrosoft AI Oddesy Challenge">
+
+                    <div class="cert-content">
+                        <div class="cert-tags">
+                            <span class="tag purple">Artificial Intelligence</span>
+                            <span class="status green">Completed</span>
+                        </div>
+
+                        <h3>Microsoft AI Odyssey Challenge</h3>
+                        <p>Successfully completed Microsoft’s AI Odyssey Challenge, strengthening practical AI, ML, and cloud-based AI skills[Azure].</p>
+                        <div class="cert-meta">
+                            <span>Microsoft</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Certificate Card 3 -->
+                <div class="cert-card">
+                    <img src="assets/NPTEL Cloud Computing.png" alt="Cloud Computing">
+
+                    <div class="cert-content">
+                        <div class="cert-tags">
+                            <span class="tag sky">Cloud Computing</span>
+                            <span class="status green">Certified</span>
+                        </div>
+
+                        <h3>Cloud Computing</h3>
+                        <p>Completed NPTEL course covering cloud architecture, virtualization, distributed systems, and deployment models and achived ELite Silver Medal</p>
+
+                        <div class="cert-meta">
+                            <span>2025</span>
+                            <span>NPTEL</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section id="qualifications" class="content-section" data-animation="fade-in">
-            <h2>Qualifications</h2>
-            <p>Master of Technology in Artificial Intelligence (Pursuing) - VIT Bhopal University</p>
-        </section>
+        <section id="education" class="content-section">
+            <h2>Education</h2>
+            <div class="education-grid">
 
-        <section id="hobbies" class="content-section" data-animation="fade-in">
-            <h2>Hobbies & Interests</h2>
-            <ul>
-                <li>Exploring web development and AI innovations</li>
-                <li>Creating interactive web applications</li>
-                <li>Playing chess to hone strategic thinking</li>
-                <li>Traveling to discover new cultures</li>
-            </ul>
-        </section>
+                <!-- B.Tech -->
+                <div class="education-card">
+                    <div class="card-icon">🎓</div>
+                    <div class="card-content">
+                        <h3>VIT Bhopal University</h3>
+                        <p class="card-subtitle">Integrated Mtech in Artificial Intelligence</p>
+                        <p class="card-desc">
+                            Focused on Artificial Intelligence and Machine Learning with strong emphasis on Data Structures, Algorithms, Databases, and Software Engineering. Gained hands-on experience through academic projects involving data analysis, ML models, and backend system development.
+                        </p>
+                    </div>
+                    <div class="card-badges">
+                        <span class="badge date-badge"><i class="fas fa-calendar-alt"></i> 2023 – 2028</span>
+                        <span class="badge cgpa-badge">CGPA : 9.31</span>
+                    </div>
+                </div>
 
-        <section id="contact" class="content-section" data-animation="fade-in">
-            <h2>Contact Me</h2>
-            <ul>
-                <li>Email: <a href="mailto:vitanshukla@gmail.com">vitanshukla@gmail.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/vitanshukla" target="_blank" rel="noopener noreferrer">linkedin.com/in/vitanshukla</a></li>
-                <li>GitHub: <a href="https://github.com/Vitan09" target="_blank" rel="noopener noreferrer">github.com/vitanshukla</a></li>
-            </ul>
-            <p><a href="assets/resume.pdf" download aria-label="Download Vitan Shukla's Resume">Download My Resume</a></p>
-        </section>
+                <!-- Class XII -->
+                <div class="education-card">
+                    <div class="card-icon">📚</div>
+                    <div class="card-content">
+                        <h3>Agarwal Public School</h3>
+                        <p class="card-subtitle">Senior Secondary Education (Class XII)</p>
+                        <p class="card-desc">
+                            Completed higher secondary education in the Science (Mathematics) stream, developing a strong analytical foundation in mathematics, logical reasoning, and problem-solving, which supports my interest in computer science and data-driven fields.
+                        </p>
+                    </div>
+                    <div class="card-badges">
+                        <span class="badge date-badge"><i class="fas fa-calendar-alt"></i> 2022</span>
+                        <span class="badge percentage-badge">Percentage: 88.4%</span>
+                    </div>
+                </div>
 
-        <section id="query" class="content-section" data-animation="fade-in">
-            <h2>Get in Touch</h2>
-            <form id="query-form" aria-label="Contact form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required aria-required="true">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required aria-required="true">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+                <!-- Class X -->
+                <div class="education-card">
+                    <div class="card-icon">🏫</div>
+                    <div class="card-content">
+                        <h3>Agarwal Public School</h3>
+                        <p class="card-subtitle">Secondary Education (Class X)</p>
+                        <p class="card-desc">
+                            Built a strong academic foundation in Mathematics and Science, along with active participation in sports and extracurricular activities that helped develop discipline, teamwork, and time-management skills.
+                        </p>
+                    </div>
+                    <div class="card-badges">
+                        <span class="badge date-badge"><i class="fas fa-calendar-alt"></i> 2020</span>
+                        <span class="badge percentage-badge">Percentage: 88.4%</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>       
+
+        <section class="contact-query-wrapper content-section">
+            <h2 style="text-align: center; grid-column: 1 / -1;">Contact & Query</h2>
+            <div id = "contacts" class="contact-section">
+                <h3>Contact Me</h3>
+                <ul>
+                    <li>Email: <a href="mailto:vitanshukla@gmail.com">vitanshukla@gmail.com</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/vitan-shukla" target="_blank">linkedin.com/in/vitanshukla</a></li>
+                    <li>GitHub: <a href="https://github.com/Vitan09" target="_blank">github.com/vitanshukla</a></li>
+                </ul>
+                <p><a href="assets/resume.pdf" download>Download My Resume</a></p>
+            </div>
+            <div id = "query" class="query-section">
+                <h3>Get in Touch</h3>
+                <form id="query-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2005 Vitan Shukla. All rights reserved.</p>
+        <p>© 2025 Vitan Shukla. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/vitan-shukla/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Vitan09" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
     </footer>
+
+    <button id="back-to-top" aria-label="Back to top">↑</button>
 
     <script src="script.js"></script>
 </body>

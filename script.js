@@ -99,30 +99,27 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 5 + 1;
-            this.speedX = Math.random() * 1 - 0.5;
-            this.speedY = Math.random() * 1 - 0.5;
+            this.size = Math.random() * 4 + 2;
+            this.speedX = Math.random() * 1.5 - 0.75;
+            this.speedY = Math.random() * 1.5 - 0.75;
+            this.color = ['#00ffff', '#ff00ff', '#00ff00', '#ffff00'][Math.floor(Math.random() * 4)];
         }
-
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
-            if (this.size > 0.2) this.size -= 0.05;
             if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
-
         draw() {
             ctx.save();
-            ctx.shadowColor = 'rgba(255, 255, 255, 0.6)';
-            ctx.shadowBlur = 10;
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.shadowBlur = 20;
+            ctx.shadowColor = this.color;
+            ctx.fillStyle = this.color;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
             ctx.restore();
         }
-
     }
 
     function initParticles() {
@@ -137,9 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].y - particles[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100) {
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / 100})`;
-                    ctx.lineWidth = 1;
+                if (distance < 120) {
+                    ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 120})`;
+                    ctx.lineWidth = 1.5;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -287,4 +284,53 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(button, { scale: 1, y: 0, duration: 0.3, ease: 'power1.inOut' });
         });
     });
+});
+
+// Fix GSAP ScrollTrigger refresh
+function refreshScrollTriggers() {
+    ScrollTrigger.refresh();
+}
+setTimeout(refreshScrollTriggers, preloaderDuration + 1000);
+window.addEventListener('resize', refreshScrollTriggers);
+
+// Skills Progress Bars Animation
+gsap.utils.toArray('.skill-item').forEach((item) => {
+    const progress = item.querySelector('.progress');
+    const targetWidth = progress.getAttribute('data-width');
+    gsap.to(progress, {
+        width: targetWidth,
+        duration: 1.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: item,
+            start: "top 80%"
+        }
+    });
+});
+
+// Timeline & Testimonials Animation
+gsap.utils.toArray('.timeline-item, .testimonial-item').forEach((item) => {
+    gsap.from(item, {
+        opacity: 0,
+        y: 60,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: item,
+            start: "top 85%"
+        }
+    });
+});
+
+// Back to Top Button
+const backToTopBtn = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
+    }
+});
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
